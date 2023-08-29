@@ -1,6 +1,7 @@
 import { mdsvex } from "mdsvex";
 // I prefer to name it like this
-import adapterNetlify from "@sveltejs/adapter-netlify";
+//import adapterNetlify from "@sveltejs/adapter-netlify";
+import adapterAuto from "@sveltejs/adapter-auto";
 import preprocess from "svelte-preprocess";
 
 export default {
@@ -17,6 +18,7 @@ export default {
   ],
 
   kit: {
-    adapter: adapterNetlify(),
+    // adapter: adapterNetlify(),
+    adapter: adapterAuto(),
   },
 };

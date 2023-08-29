@@ -1,16 +1,19 @@
 <script>
-  import SuperHeroes from "$lib/components/SuperHeroes.svelte";
-  const description = "Here's my description!";
-  async function update(value) {
+import SuperHeroes from "$lib/components/SuperHeroes.svelte";
+let items = [];
+let value = "";
+const description = "Here's my description!";
+
+async function update(value) {
     if (value.trim().length > 0) {
-      items = await fetch(`/heroes?q=${value.trim()}`).then((v) => v.json());
+        const response = await fetch(`/heroes?q=${value.trim()}`);
+        items = await response.json();
     } else {
-      items = [];
+        items = [];
     }
-  }
-  let items = [];
-  let value;
-  $: update(value);
+}
+
+$: update(value);
 </script>
 
 <svelte:head>
@@ -20,11 +23,11 @@
 
 <main class="w-[95%] max-w-2xl mx-auto mt-48">
   <h1 class="text-3xl font-bold">
-    Example reading data from a local SQLite database
+    Menampilkan data superhero dari SQlite database local
   </h1>
-  <p>Search for superheroes below</p>
+  <p>Temukan superhero mu disini!</p>
   <input
-    class="p-2"
+    class="p-2 border border-2 border-blue-700 rounded-full pl-5 mt-5"
     type="search"
     autocomplete="off"
     placeholder="Search"

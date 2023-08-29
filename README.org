@@ -1,1 +1,0 @@
-* Demo: a SvelteKit project that reads from a local SQLite database
