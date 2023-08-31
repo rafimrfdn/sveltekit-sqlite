@@ -11,5 +11,9 @@ export function GET({ url }) {
     throw error(401, "Query (`?q=`) is required");
   }
   const stmt = db.prepare("select * from superheroes where name like ?");
+    // ganti nama menjadi hair_color, first_appearance, dll berdasarkan table head di database
+  //const stmt = db.prepare("select * from superheroes where hair_color like ?");
   return json(stmt.all(`%${query}%`));
 }
+
+

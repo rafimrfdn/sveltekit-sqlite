@@ -18,16 +18,16 @@ $: update(value);
 
 <svelte:head>
   <meta name="description" content={description} />
-  <title>Here's a title!</title>
+  <title>Super Heroes Database</title>
 </svelte:head>
 
-<main class="w-[95%] max-w-2xl mx-auto mt-48">
-  <h1 class="text-3xl font-bold">
+<main class="">
+  <h1 class="">
     Menampilkan data superhero dari SQlite database local
   </h1>
   <p>Temukan superhero mu disini!</p>
   <input
-    class="p-2 border border-2 border-blue-700 rounded-full pl-5 mt-5"
+    class=""
     type="search"
     autocomplete="off"
     placeholder="Search"

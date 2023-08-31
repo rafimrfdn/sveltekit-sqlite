@@ -1,24 +1,13 @@
-import { mdsvex } from "mdsvex";
-// I prefer to name it like this
-//import adapterNetlify from "@sveltejs/adapter-netlify";
-import adapterAuto from "@sveltejs/adapter-auto";
-import preprocess from "svelte-preprocess";
+import adapter from '@sveltejs/adapter-auto';
 
-export default {
-  extensions: [".svelte", ".svelte.md", ".md", ".svx"],
-  preprocess: [
-    preprocess(),
-    mdsvex({
-      smartypants: {
-        dashes: "oldschool",
-      },
-      extensions: [".svelte.md", ".md", ".svx"],
-      layout: "src/lib/MarkdownLayout.svelte",
-    }),
-  ],
-
-  kit: {
-    // adapter: adapterNetlify(),
-    adapter: adapterAuto(),
-  },
+/** @type {import('@sveltejs/kit').Config} */
+const config = {
+	kit: {
+		// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
+		// If your environment is not supported or you settled on a specific environment, switch out the adapter.
+		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
+		adapter: adapter()
+	}
 };
+
+export default config;
